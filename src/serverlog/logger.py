@@ -34,7 +34,7 @@ class Logger:
             logFile.write(logEntry)
 
     @staticmethod
-    def read_logs() -> str:
+    def readLogs() -> str:
         """
         Reads and returns the content of the log file.
 

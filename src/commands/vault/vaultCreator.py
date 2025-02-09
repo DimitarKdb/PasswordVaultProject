@@ -33,18 +33,18 @@ class VaultCreator:
             return Response(False, f"Error creating vault for user '{username}': {str(e)}")
 
     @staticmethod
-    def createCategoryVault(username: str, category_str: str) -> Response:
+    def createCategoryVault(username: str, categoryString: str) -> Response:
         """
         Creates a vault for a specific category within the user's vault directory.
         Only predefined categories (from VaultCategoryEnum) are allowed.
 
         :param username: The username for whom the category vault is being created.
-        :param category_str: The category name as a string.
+        :param categoryString: The category name as a string.
         :return: Response object indicating success or failure.
         """
         try:
-            category_str = category_str.lower()
-            category = VaultCategoryEnum(category_str)  # Ensure enum is validated
+            categoryString = categoryString.lower()
+            category = VaultCategoryEnum(categoryString)
         except ValueError:
             allowedCategories = [cat.value for cat in VaultCategoryEnum]
             return Response(False, f"Invalid category. Allowed categories: {', '.join(allowedCategories)}")
